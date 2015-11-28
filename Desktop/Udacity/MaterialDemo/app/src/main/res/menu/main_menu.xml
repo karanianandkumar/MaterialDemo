@@ -7,4 +7,12 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/navigate"
+        android:icon="@drawable/ic_next"
+        android:orderInCategory="200"
+        app:showAsAction="always"
+        android:title="@string/next">
+
+    </item>
 </menu>
