@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class NavigationDrawerFragement extends Fragment {
     }
 
 
-    public void setUp(int fragmentId,DrawerLayout drawerLayout, Toolbar toolbar) {
+    public void setUp(int fragmentId,DrawerLayout drawerLayout, final Toolbar toolbar) {
 
         containerView=getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
@@ -68,6 +69,13 @@ public class NavigationDrawerFragement extends Fragment {
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
               getActivity().invalidateOptionsMenu();
+            }
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                if(slideOffset<0.7){
+                    toolbar.setAlpha(1-slideOffset);
+                }
             }
         };
         if(!mUserLearndDrawer && ! mFromSavedInstanceState){
