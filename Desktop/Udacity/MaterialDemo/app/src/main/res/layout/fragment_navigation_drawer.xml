@@ -2,13 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEE"
+    android:background="#FB8C00"
     tools:context="com.example.android.materialdemo.NavigationDrawerFragement">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_marginTop="@dimen/drawable_top_margin"
+        android:layout_height="140dp"
+        android:src="@drawable/ic_abstract"
+        android:layout_marginBottom="16dp"/>
 
 </RelativeLayout>
