@@ -2,15 +2,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FB8C00"
+    android:background="#DADADA"
     tools:context="com.example.android.materialdemo.NavigationDrawerFragement">
 
     <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/containerDrawerImage"
+        android:layout_width="match_parent"
+        android:background="#FB8C00"
+        android:layout_height="wrap_content">
     <ImageView
         android:layout_width="280dp"
         android:layout_marginTop="@dimen/drawable_top_margin"
         android:layout_height="140dp"
         android:src="@drawable/ic_abstract"
         android:layout_marginBottom="16dp"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/drawerList"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
