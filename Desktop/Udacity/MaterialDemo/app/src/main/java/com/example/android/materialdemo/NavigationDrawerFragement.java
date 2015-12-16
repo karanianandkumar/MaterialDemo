@@ -7,12 +7,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -21,6 +25,7 @@ import android.view.ViewGroup;
 public class NavigationDrawerFragement extends Fragment {
 
 
+    private DrawerAdapter adapter;
     private RecyclerView recyclerView;
     public static final String PREF_FILE_NAME = "testpref";
     public static final String KEY_USER_LEARNED_DRAWER = "user_learned_drawer";
@@ -50,10 +55,26 @@ public class NavigationDrawerFragement extends Fragment {
         // Inflate the layout for this fragment
         View layout=inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         recyclerView=(RecyclerView)layout.findViewById(R.id.drawerList);
+        adapter=new DrawerAdapter(getActivity(),getData());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return layout;
 
     }
 
+    public static List<Information> getData(){
+        List<Information> data=new ArrayList<>();
+        int[] icons={R.drawable.ic_number1,R.drawable.ic_number2,R.drawable.ic_number3,R.drawable.ic_number4};
+        String[] titles={"Anand","Kumar","Anil","Kiran"};
+        for(int i=0;i<icons.length&&i<titles.length;i++){
+            Information current=new Information();
+            current.iconId=icons[i];
+            current.title=titles[i];
+            data.add(current);
+        }
+        return data;
+
+    }
 
     public void setUp(int fragmentId,DrawerLayout drawerLayout, final Toolbar toolbar) {
 

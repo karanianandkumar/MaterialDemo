@@ -43,7 +43,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.size();
     }
 
 
